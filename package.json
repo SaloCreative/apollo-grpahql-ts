@@ -2,10 +2,10 @@
   "name": "apollo-graphql-ts",
   "version": "0.0.1",
   "description": "An apollo / graphql node server written in typescript",
-  "main": "./dist/server.js",
+  "main": "./dist/app.js",
   "scripts": {
-    "dev": "ts-node ./src/server.ts",
-    "start": "NODE_ENV=development concurrently \"tsc -w\" \"nodemon ./dist/server\" ",
+    "dev": "ts-node ./src/app.ts",
+    "start": "NODE_ENV=development concurrently \"tsc -w\" \"nodemon ./dist/app\" ",
     "build": "NODE_ENV=staging tsc",
     "build-prod": "NODE_ENV=production tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -23,13 +23,18 @@
   "license": "ISC",
   "dependencies": {
     "@types/express": "^4.16.0",
+    "apollo-engine": "^1.1.2",
+    "apollo-server": "^2.2.0",
+    "apollo-server-express": "^2.2.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "graphql": "^14.0.2",
     "lodash": "^4.17.11",
     "mongoose": "^5.3.10",
     "nodemon": "^1.18.6"
   },
   "devDependencies": {
+    "@types/graphql": "^14.0.3",
     "concurrently": "^4.0.1",
     "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.11.0",

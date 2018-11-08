@@ -1,21 +1,10 @@
-import * as express from 'express';
-import * as bodyParser from 'body-parser';
+import server from './server';
+import { build_config } from './config';
 
-class App {
+const ENV = process.env.NODE_ENV;
+const config = build_config(ENV);
+const { port } = config;
 
-  public app: express.Application;
-
-  constructor() {
-    this.app = express();
-    this.config();
-  }
-
-  private config(): void {
-    this.app.disable('x-powered-by');
-    this.app.use(bodyParser.json({ limit: '50mb' }));
-    this.app.use(bodyParser.urlencoded({ extended: false }));
-  }
-
-}
-
-export default new App().app;
+server.listen({ port }, () => {
+  console.log(`🚀 Server ready at http://localhost:${ port }`);
+});
