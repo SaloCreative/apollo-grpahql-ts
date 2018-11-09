@@ -6,7 +6,7 @@ import { ApolloServer } from 'apollo-server-express';
 
 // HELPERS
 import schema from '../schema';
-// const resolvers = require('../resolvers');
+import resolvers from '../resolvers';
 import { build_config } from '../config';
 
 // MODELS
@@ -16,8 +16,8 @@ const config = build_config(ENV);
 
 // Set up Apollo Server
 const server = new ApolloServer({
+  resolvers,
   typeDefs: schema,
-  resolvers: {},
   context: ({ req }) => {
     // simple auth check on every request
     const auth_header = get(req, 'headers.authorization', '');

@@ -8,3 +8,18 @@ const { port } = config;
 server.listen({ port }, () => {
   console.log(`🚀 Server ready at http://localhost:${ port }`);
 });
+
+interface Mutation {}
+interface Query {}
+interface Resolver {}
+class Auth extends ResolverClass {
+  mutation() : Mutation {
+    return {};
+  }
+  query() : Query {
+    return {};
+  }
+  resolver() : Resolver {
+    return {};
+  }
+}
